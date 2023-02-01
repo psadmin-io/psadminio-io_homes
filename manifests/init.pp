@@ -6,6 +6,7 @@ class io_homes (
   $ps_home_location          = lookup('ps_home_location', undef, undef, ''),
   $ps_cust_home_location     = lookup('ps_cust_home_location', undef, undef, ''),
   $unicode                   = lookup('unicode', undef, undef, undef),
+  $source                    = undef,
   $ps_home_files             = undef,
   $ps_cust_home_files        = undef,
 ) {
