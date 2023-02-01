@@ -20,11 +20,11 @@ class io_homes::ps_cust_home (
   # PS_CUST_HOME/fonts/trueype
   # ##########################
   if ($files['fonts']) {
-    notify { 'Deplying Custom Files - Fonts': }
+    notify { 'Deplying Custom PS_CUST_HOME Files - Fonts': }
 
     $files['fonts'].each | $file | {
 
-      file {"${ps_cust_home_location}/font/truetype/${file}":
+      file {"${ps_cust_home_location}/fonts/truetype/${file}":
         ensure => $ensure,
         source => "${source}/${file}",
         owner  => $psft_runtime_user_name,
@@ -33,14 +33,14 @@ class io_homes::ps_cust_home (
       }
     }
   } else {
-    notify { 'No custom fonts to deploy': }
+    notify { 'No custom PS_CUST_HOME fonts to deploy': }
   }
 
   # ################
   # PS_CUST_HOME/bin
   # ################
   if ($files['bin']) {
-    notify { 'Deplying Custom Files - Binaries': }
+    notify { 'Deplying Custom PS_CUST_HOME Files - Binaries': }
 
     $files['bin'].each | $file | {
 
@@ -53,14 +53,34 @@ class io_homes::ps_cust_home (
       }
     }
   } else {
-    notify { 'No custom binaries to deploy': }
+    notify { 'No custom PS_CUST_HOME binaries to deploy': }
+  }
+
+  # ##################
+  # PS_CUST_HOME/class
+  # ##################
+  if ($files['class']) {
+    notify { 'Deplying Custom PS_CUST_HOME Files - Class': }
+
+    $files['class'].each | $file | {
+
+      file {"${ps_cust_home_location}/class/${file}":
+        ensure => $ensure,
+        source => "${source}/${file}",
+        owner  => $psft_runtime_user_name,
+        group  => $psft_runtime_group_name,
+        mode   => '0644',
+      }
+    }
+  } else {
+    notify { 'No custom PS_CUST_HOME class files to deploy': }
   }
 
   # ####################
   # PS_CUST_HOME/appserv
   # ####################
   if ($files['appserv']) {
-    notify { 'Deplying Custom Files - Appserv': }
+    notify { 'Deplying Custom PS_CUST_HOME Files - Appserv': }
 
     $files['appserv'].each | $file | {
 
@@ -73,7 +93,7 @@ class io_homes::ps_cust_home (
       }
     }
   } else {
-    notify { 'No custom appserv files to deploy': }
+    notify { 'No custom PS_CUST_HOME appserv files to deploy': }
   }
 
 }

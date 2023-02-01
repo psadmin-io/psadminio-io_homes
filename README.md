@@ -36,23 +36,37 @@ This module will use data from your yaml files. It uses delivered DPK hashes/var
 ### Custom PS_HOME Files
 
 ```yaml
+io_homes::ensure: present
 io_homes::source: "/tmp/"
+io_homes::ps_home_location: "${hiera('ps_home_location')}"
+io_homes::unicode: false
 io_homes::ps_home_files:
-  font:
-    - logo.png
-  portal:
-    - bootstrap.min.css
-    - bootstrap.min.js
-    - bootstrap-theme.min.css
-    - logo.png
-  psftdocs:
-    - custom.html
-    - custom.js
-    - logo.png
+  fonts:
+    - GNUMICR_0.TTF
+  bin:
+    - PSRTISRV
+  class:
+    - commons-io-2.11.0.jar
+  appserv:
+    - xdo.cfg
+```
+### Custom PS_CUST_HOME Files
+
+```yaml
+io_homes::ensure: present
+io_homes::source: "/tmp/"
+io_homes::ps_cust_home_location: "${hiera('ps_cust_home_location')}"
+io_homes::ps_cust_home_files:
+  fonts:
+    - GNUMICR_0.TTF
+  bin:
+    - PSRTISRV
+  class:
+    - commons-io-2.11.0.jar
+  appserv:
+    - xdo.cfg
 ```
 
-The `io_home::source` value is used as the source location for all the files. 
 
-* The `root` array is for files to be deployed under the `PORTAL.war` folder. 
-* The `portal` array is for files to be deployed under the `PORTAL.war\site_name` folder.
-* The `psftdocs` array is for files to be deployed under the `PORTAL.war\WEB-INF\psftdocs\site_name` folder.
+
+The `io_home::source` value is used as the source location for all the files. The files under the `source` folder are all in a single directory; the module will deploy the files under the appropriate directory in either `PS_HOME` or `PS_CUST_HOME`.
