@@ -40,7 +40,7 @@ class io_homes::ps_home (
   # ###########
   # Unicode.cfg
   # ###########
-  if ($unicode == False) {
+  if ! $unicode {
     notify { 'Removing unicode.cfg': }
     file {"${ps_home_location}/setup/unicode.cfg":
       ensure => absent,
