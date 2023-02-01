@@ -13,7 +13,7 @@ class io_homes::ps_cust_home (
   $files                      = $io_homes::ps_cust_home_files,
   $ps_cust_home_location      = $io_homes::ps_cust_home_location,
   $psft_runtime_user_name     = $io_homes::psft_runtime_user_name,
-  $psft_runtime_group_name    = $io_homes::psft_runtime_group_name,
+  $oracle_install_group_name  = $io_homes::oracle_install_group_name,
 ) inherits io_homes {
 
   # ##########################
@@ -28,7 +28,7 @@ class io_homes::ps_cust_home (
         ensure => $ensure,
         source => "${source}/${file}",
         owner  => $psft_runtime_user_name,
-        group  => $psft_runtime_group_name,
+        group  => $oracle_install_group_name,
         mode   => '0644',
       }
     }
@@ -48,7 +48,7 @@ class io_homes::ps_cust_home (
         ensure => $ensure,
         source => "${source}/${file}",
         owner  => $psft_runtime_user_name,
-        group  => $psft_runtime_group_name,
+        group  => $oracle_install_group_name,
         mode   => '0644',
       }
     }
@@ -68,7 +68,7 @@ class io_homes::ps_cust_home (
         ensure => $ensure,
         source => "${source}/${file}",
         owner  => $psft_runtime_user_name,
-        group  => $psft_runtime_group_name,
+        group  => $oracle_install_group_name,
         mode   => '0644',
       }
     }
@@ -88,7 +88,7 @@ class io_homes::ps_cust_home (
         ensure => $ensure,
         source => "${source}/${file}",
         owner  => $psft_runtime_user_name,
-        group  => $psft_runtime_group_name,
+        group  => $oracle_install_group_name,
         mode   => '0644',
       }
     }

@@ -36,10 +36,7 @@ This module will use data from your yaml files. It uses delivered DPK hashes/var
 ### Custom PS_HOME Files
 
 ```yaml
-io_homes::ensure: present
 io_homes::source: "/tmp/"
-io_homes::ps_home_location: "${hiera('ps_home_location')}"
-io_homes::unicode: false
 io_homes::ps_home_files:
   fonts:
     - GNUMICR_0.TTF
@@ -53,9 +50,7 @@ io_homes::ps_home_files:
 ### Custom PS_CUST_HOME Files
 
 ```yaml
-io_homes::ensure: present
 io_homes::source: "/tmp/"
-io_homes::ps_cust_home_location: "${hiera('ps_cust_home_location')}"
 io_homes::ps_cust_home_files:
   fonts:
     - GNUMICR_0.TTF
