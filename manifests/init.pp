@@ -5,7 +5,7 @@ class io_homes (
   $oracle_install_group_name = lookup('oracle_install_group_name', undef, undef, 'oinstall'),
   $ps_home_location          = lookup('ps_home_location', undef, undef, ''),
   $ps_cust_home_location     = lookup('ps_cust_home_location', undef, undef, ''),
-  $unicode                   = lookup('unicode', undef, undef, False),
+  $unicode                   = lookup('unicode', undef, undef, undef),
   $ps_home_files             = undef,
   $ps_cust_home_files        = undef,
 ) {
