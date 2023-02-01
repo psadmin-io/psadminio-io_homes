@@ -60,7 +60,7 @@ class io_homes::ps_home (
         source => "${source}/${file}",
         owner  => $psft_install_user_name,
         group  => $oracle_install_group_name,
-        mode   => '0644',
+        mode   => '0755',
       }
     }
   } else {
